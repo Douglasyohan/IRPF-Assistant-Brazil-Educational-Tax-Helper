@@ -1,4 +1,67 @@
-# 🧾 IRPF Assistant (Brazil) — Educational Tax Helper
+# Assistente Educacional IRPF 2026
+
+Aplicação web estática (HTML/CSS/JS) desenvolvida para auxiliar cidadãos brasileiros a entenderem as regras do Imposto de Renda Pessoa Física (IRPF) para o exercício de 2026, com foco especial na nova faixa de isenção.
+
+## 📝 Descrição do Projeto
+
+O projeto nasceu da necessidade de simplificar a comunicação fiscal. Ele atua como uma interface de "baixa carga cognitiva", traduzindo termos jurídicos e contábeis para uma linguagem acessível ao público leigo. O sistema guia o usuário por uma jornada de aprendizado antes de permitir a simulação de valores.
+
+## ⚖️ Princípios de Compliance e Regras de Negócio
+
+### 1\. Isenção Atualizada
+
+O motor de cálculo foi ajustado para a nova diretriz de 2026:
+
+  * **Piso de Isenção:** R$ 5.000,00 mensais.
+  * **Base Anual:** R$ 60.000,00.
+  * **Lógica:** O imposto é simulado apenas sobre o excedente da base de isenção, considerando deduções por dependentes e saúde.
+
+### 2\. Privacidade e Segurança
+
+  * **Zero Backend:** Não existem bancos de dados ou APIs externas.
+  * **Local Storage:** Os dados são salvos apenas no navegador do usuário para persistência temporária.
+  * **Segurança de Dados:** Nenhuma informação financeira sai do dispositivo do usuário.
+
+### 3\. Pilares de UX (User Experience)
+
+  * **Educação Primeiro:** É obrigatório passar pelo bloco didático antes da ferramenta de cálculo.
+  * **Linguagem Cidadã:** Termos como "Deduções" são apresentados como "Descontos por gastos essenciais".
+  * **Acessibilidade:** Interface limpa, mobile-first e sem elementos visuais distrativos.
+
+## 🛠️ Tecnologias Utilizadas
+
+  * **HTML5:** Estrutura semântica.
+  * **CSS3:** Design responsivo utilizando Variáveis CSS para padronização de cores.
+  * **Vanilla JavaScript:** Lógica de cálculo e manipulação de DOM sem dependências de frameworks.
+
+## 📂 Estrutura do Código
+
+A correção aplicada nesta versão focou em:
+
+1.  **Documentação JSDoc:** Comentários nas funções JavaScript para facilitar a manutenção.
+2.  **Remoção de Emojis:** Interface limpa seguindo padrões profissionais de design institucional.
+3.  **Analogias Didáticas:** Inclusão da explicação de imposto como "Taxa de Condomínio" no Passo 1.
+
+## 🚀 Como Executar
+
+1.  Faça o download do arquivo `index.html`.
+2.  Abra o arquivo em qualquer navegador moderno (Chrome, Firefox, Edge ou Safari).
+3.  Nenhuma conexão com a internet é necessária após o carregamento inicial.
+
+-----
+
+## 👨‍💻 Desenvolvedor
+
+**Douglas Yohan**
+Analista de Infraestrutura e Segurança | Estudante de Ciências Contábeis
+
+  * [LinkedIn](https://www.google.com/search?q=https://linkedin.com/in/douglasyohan)
+  * [GitHub](https://www.google.com/search?q=https://github.com/Douglasyohan)
+  * [Lattes](https://www.google.com/search?q=https://lattes.cnpq.br/4064564945245811)
+
+-----
+
+**Nota:** Esta ferramenta é um guia educativo e não substitui o Programa Gerador de Declaração (PGD) da Receita Federal do Brasil.# 🧾 IRPF Assistant (Brazil) — Educational Tax Helper
 
 ## 📌 Description
 
