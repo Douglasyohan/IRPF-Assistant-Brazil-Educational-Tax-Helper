@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente Educacional IRPF 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primaria: #004a99;
+            --sucesso: #2d8a39;
+            --alerta: #d97706;
+            --fundo: #f8fafc;
+            --texto: #1a202c;
+            --borda: #cbd5e0;
+            --branco: #ffffff;
+        }
+
+        /* Configuracoes Base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--fundo);
+            color: var(--texto);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Aviso de Responsabilidade */
+        .caixa-aviso {
+            background-color: #fffaf0;
+            border: 2px solid var(--alerta);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            color: var(--primaria);
+            font-size: 2.4rem;
+            margin-bottom: 5px;
+        }
+
+        /* Organizacao em Cards */
+        .cartao-secao {
+            background-color: var(--branco);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        .cartao-secao.visivel {
+            display: block;
+        }
+
+        /* Estilo para Textos Educativos */
+        .bloco-ensino {
+            margin: 25px 0;
+        }
+
+        .item-ensino {
+            background-color: #f1f5f9;
+            padding: 20px;
+            border-left: 8px solid var(--primaria);
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .item-ensino h3 {
+            color: var(--primaria);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .item-ensino p {
+            font-size: 1rem;
+            color: #4a5568;
+        }
+
+        /* Campos de Entrada */
+        .grupo-input {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }
+
+        .texto-apoio {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 18px;
+            border: 2px solid var(--borda);
+            border-radius: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Botoes de Acao */
+        .botao {
+            display: block;
+            width: 100%;
+            padding: 22px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .botao-primario {
+            background-color: var(--primaria);
+            color: var(--branco);
+        }
+
+        .botao-voltar {
+            background-color: #edf2f7;
+            color: #4a5568;
+            margin-top: 15px;
+        }
+
+        /* Area de Resultados */
+        .quadro-resultado {
+            background-color: #2d3748;
+            color: var(--branco);
+            padding: 35px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .destaque-valor {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #63b3ed;
+            margin: 15px 0;
+            display: block;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid var(--borda);
+        }
+
+        .sociais a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--primaria);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="caixa-aviso">
+        IMPORTANTE: Esta e uma ferramenta educativa. Os dados digitados permanecem apenas no seu navegador. 
+        Nao enviamos informacoes para o Governo. O uso oficial deve ser feito pelo sistema da Receita Federal.
+    </div>
+
+    <header>
+        <h1>Guia do Imposto de Renda 2026</h1>
+        <p>Aprenda de forma clara e simule seus valores com as novas regras.</p>
+    </header>
+
+    <section id="passo1" class="cartao-secao visivel">
+        <h2>O que e o Imposto de Renda? (Explicacao para o Tio)</h2>
+        <div class="bloco-ensino">
+            <div class="item-ensino">
+                <h3>O Condominio do Pais</h3>
+                <p>Imagine que o Brasil e um grande predio onde todos moramos. O Imposto de Renda e como a taxa de condominio. Quem mora em apartamentos maiores (ganha mais dinheiro) paga uma cota maior para manter os elevadores, a portaria e a limpeza (saude, seguranca e estradas).</p>
+            </div>
+            <div class="item-ensino">
+                <h3>Quem e Isento (Quem nao paga)?</h3>
+                <p>Em 2026, a regra mudou. Se voce ganha ate 5.000,00 reais por mes (totalizando 60.000,00 no ano), voce e considerado isento. Isso significa que o governo entende que voce precisa de todo esse dinheiro para sobreviver e nao cobrara o imposto sobre o seu salario.</p>
+            </div>
+            <div class="item-ensino">
+                <h3>Os Descontos (Deducoes)</h3>
+                <p>O governo da descontos para quem cuida da propria saude e da educacao da familia. Se voce gastou dinheiro com dentista ou escola, voce avisa o governo e ele diminui o valor do seu imposto. E como um "vale-desconto" por voce estar investindo em si mesmo.</p>
+            </div>
+            <div class="item-ensino">
+                <h3>O que acontece se nao declarar?</h3>
+                <p>Se voce era obrigado a declarar e nao fez, seu CPF pode ficar bloqueado. Isso impede de aposentar, tirar passaporte ou fazer emprestimos em bancos.</p>
+            </div>
+        </div>
+        <p style="font-weight: 700; margin-bottom: 20px;">Pronto para ver sua situacao? Clique no botao abaixo.</p>
+        <button class="botao botao-primario" onclick="mudarPasso(2)">Simular Minha Declaracao</button>
+    </section>
+
+    <section id="passo2" class="cartao-secao">
+        <h2>Dinheiro que entrou em 2025</h2>
+        <div class="grupo-input">
+            <label>Salario ou Aposentadoria (Soma do ano inteiro)</label>
+            <span class="texto-apoio">Va somando todos os meses que voce recebeu do INSS ou da empresa. Se nao teve, pode colocar 0 ou deixar vazio.</span>
+            <input type="number" id="renda_anual" placeholder="0.00">
+        </div>
+        <div class="grupo-input">
+            <label>Outras Rendas (Bicos, Alugueis, Extras)</label>
+            <span class="texto-apoio">Qualquer outro dinheiro que entrou na sua conta durante o ano.</span>
+            <input type="number" id="renda_outra" placeholder="0.00">
+        </div>
+        <button class="botao botao-primario" onclick="mudarPasso(3)">Proximo Passo: Gastos</button>
+        <button class="botao botao-voltar" onclick="mudarPasso(1)">Voltar para a Explicacao</button>
+    </section>
+
+    <section id="passo3" class="cartao-secao">
+        <h2>Gastos e Familia</h2>
+        <div class="grupo-input">
+            <label>Pessoas que dependem de voce</label>
+            <span class="texto-apoio">Filhos ate 21 anos, esposa/marido que nao trabalha ou pais que ganham pouco.</span>
+            <select id="dependentes">
+                <option value="0">Nenhuma pessoa</option>
+                <option value="1">1 Pessoa</option>
+                <option value="2">2 Pessoas</option>
+                <option value="3">3 ou mais pessoas</option>
+            </select>
+        </div>
+        <div class="grupo-input">
+            <label>Gastos com Saude e Medicos</label>
+            <span class="texto-apoio">Consultas, exames e plano de saude. Nao inclua gastos com farmacia.</span>
+            <input type="number" id="saude" placeholder="0.00">
+        </div>
+        <button class="botao botao-primario" onclick="processarCalculo()">Ver Resultado Final</button>
+        <button class="botao botao-voltar" onclick="mudarPasso(2)">Voltar</button>
+    </section>
+
+    <section id="passo4" class="cartao-secao">
+        <h2>Resultado da Simulacao</h2>
+        <div class="quadro-resultado">
+            <p id="titulo_resultado">Valor Estimado:</p>
+            <span class="destaque-valor" id="valor_resultado">R$ 0,00</span>
+            <p id="explicacao_final" style="font-size: 0.95rem;"></p>
+        </div>
+        <div id="area_resumo" style="margin-top: 25px; padding: 20px; background: #f8fafc; border-radius: 8px;">
+            </div>
+        <button class="botao botao-voltar" onclick="location.reload()">Refazer Tudo</button>
+    </section>
+
+    <footer>
+        <div class="sociais">
+            <a href="https://linkedin.com/in/douglasyohan" target="_blank">LinkedIn</a>
+            <a href="https://github.com/Douglasyohan" target="_blank">GitHub</a>
+            <a href="https://lattes.cnpq.br/4064564945245811" target="_blank">Lattes</a>
+        </div>
+        <p style="margin-top: 15px; font-size: 0.85rem; color: #718096;">Projeto Educativo para Auxilio ao Contribuinte. 2026.</p>
+    </footer>
+</div>
+
+<script>
+    /**
+     * Gerencia a navegacao entre as sessoes da aplicacao
+     * @param {number} numeroPasso - Identificador da secao ativa
+     */
+    function mudarPasso(numeroPasso) {
+        document.querySelectorAll('.cartao-secao').forEach(c => c.classList.remove('visivel'));
+        document.getElementById('passo' + numeroPasso).classList.add('visivel');
+        window.scrollTo(0, 0);
+    }
+
+    /**
+     * Converte numeros para o formato de moeda brasileira (BRL)
+     * @param {number} n - Valor numerico
+     * @returns {string} Valor formatado
+     */
+    function formatar(n) {
+        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(n);
+    }
+
+    /**
+     * Lógica principal de calculo fiscal baseada na isencao de 60 mil anuais (5k mensais)
+     */
+    function processarCalculo() {
+        // Captura de entradas do usuario
+        const rendaAnual = parseFloat(document.getElementById('renda_anual').value) || 0;
+        const rendaExtra = parseFloat(document.getElementById('renda_outra').value) || 0;
+        const rendaTotal = rendaAnual + rendaExtra;
+
+        const dependentes = parseInt(document.getElementById('dependentes').value);
+        const gastoSaude = parseFloat(document.getElementById('saude').value) || 0;
+
+        const limiteIsencao = 60000; // Limite de 5 mil mensais projetado para 2026
+        let impostoFinal = 0;
+        let mensagem = "";
+
+        // Verificacao de Isencao Direta
+        if (rendaTotal <= limiteIsencao) {
+            impostoFinal = 0;
+            document.getElementById('titulo_resultado').innerText = "Voce esta ISENTO!";
+            mensagem = "Como voce ganhou menos de 60 mil no ano, o governo nao cobrara imposto sobre sua renda.";
+        } else {
+            // Simulacao de Calculo Progressivo (Simplificado para fins educativos)
+            // Abatimento de dependentes (media de 2.200 por pessoa) e gastos de saude
+            const abatimentoFamiliar = dependentes * 2275;
+            const baseCalculo = Math.max(0, rendaTotal - limiteIsencao - abatimentoFamiliar - gastoSaude);
+            
+            // Aliquota estimada de 15% sobre o excedente da isencao
+            impostoFinal = baseCalculo * 0.15;
+            document.getElementById('titulo_resultado').innerText = "Imposto Estimado a Pagar:";
+            mensagem = "Voce ultrapassou a faixa de isencao. O valor acima e uma estimativa do que voce deve pagar.";
+        }
+
+        // Atualizacao da Interface
+        document.getElementById('valor_resultado').innerText = formatar(impostoFinal);
+        document.getElementById('explicacao_final').innerText = mensagem;
+
+        // Geracao do Resumo para facilitar o preenchimento no sistema oficial
+        document.getElementById('area_resumo').innerHTML = `
+            <h3>Resumo para o Programa da Receita:</h3>
+            <p><strong>Total de Ganhos:</strong> ${formatar(rendaTotal)}</p>
+            <p><strong>Dependentes:</strong> ${dependentes} pessoa(s)</p>
+            <p><strong>Saude (Deducao):</strong> ${formatar(gastoSaude)}</p>
+            <p style="margin-top:10px; font-style: italic; color: #4a5568;">Dica: Ao abrir o programa oficial, procure por 'Rendimentos Tributaveis' para colocar seus ganhos.</p>
+        `;
+
+        mudarPasso(4);
+    }
+</script>
+
+</body>
+</html>
