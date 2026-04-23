@@ -1,352 +1,1498 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assistente Educacional IRPF 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primaria: #004a99;
-            --sucesso: #2d8a39;
-            --alerta: #d97706;
-            --fundo: #f8fafc;
-            --texto: #1a202c;
-            --borda: #cbd5e0;
-            --branco: #ffffff;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia IR 2026 — Entenda e Simule seu Imposto de Renda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --cream-dark: #F0EBE0;
+    --olive: #4A5A3A;
+    --olive-light: #6B7A56;
+    --olive-pale: #E8EDDF;
+    --amber: #D4820A;
+    --amber-light: #F0A830;
+    --amber-pale: #FEF3DC;
+    --rust: #B84C26;
+    --rust-pale: #FDEDE7;
+    --sky: #2C6E8A;
+    --sky-pale: #E0F0F8;
+    --text: #1E2319;
+    --text-muted: #6B7060;
+    --border: #D8D3C8;
+    --shadow: 0 4px 24px rgba(30,35,25,0.10);
+    --shadow-lg: 0 8px 40px rgba(30,35,25,0.14);
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
 
-        /* Configuracoes Base */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--fundo);
-            color: var(--texto);
-            line-height: 1.6;
-            padding: 20px;
-        }
+  html { scroll-behavior: smooth; }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+  body {
+    font-family: 'Sora', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 1.6;
+  }
 
-        /* Aviso de Responsabilidade */
-        .caixa-aviso {
-            background-color: #fffaf0;
-            border: 2px solid var(--alerta);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            font-size: 0.9rem;
-            text-align: center;
-            font-weight: 700;
-        }
+  /* ===== AVISO LEGAL TOP BAR ===== */
+  .legal-bar {
+    background: var(--olive);
+    color: rgba(255,255,255,0.92);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .legal-bar span { opacity: 0.7; margin: 0 8px; }
 
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+  /* ===== HEADER ===== */
+  .site-header {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 38px;
+    z-index: 90;
+  }
+  .site-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--olive);
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: var(--olive);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+  }
+  .nav-btn {
+    background: var(--olive);
+    color: #fff;
+    border: none;
+    padding: 9px 20px;
+    border-radius: 50px;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .nav-btn:hover { background: var(--olive-light); transform: translateY(-1px); }
 
-        header h1 {
-            color: var(--primaria);
-            font-size: 2.4rem;
-            margin-bottom: 5px;
-        }
+  /* ===== MAIN WRAPPER ===== */
+  .main { max-width: 800px; margin: 0 auto; padding: 0 20px 80px; }
 
-        /* Organizacao em Cards */
-        .cartao-secao {
-            background-color: var(--branco);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            display: none;
-            margin-bottom: 20px;
-        }
+  /* ===== HERO ===== */
+  .hero {
+    padding: 60px 0 40px;
+    text-align: center;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--amber-pale);
+    color: var(--amber);
+    border: 1px solid #EBB96A;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 6vw, 52px);
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 18px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--olive);
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 0 auto 32px;
+    font-weight: 400;
+  }
+  .hero-disclaimer {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--rust-pale);
+    border: 1px solid #EBBBA8;
+    color: var(--rust);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 50px;
+  }
 
-        .cartao-secao.visivel {
-            display: block;
-        }
+  /* ===== SECTION TITLES ===== */
+  .section-head {
+    margin: 48px 0 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-head-icon {
+    width: 40px; height: 40px;
+    background: var(--olive-pale);
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .section-head-text h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--text);
+  }
+  .section-head-text p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
 
-        /* Estilo para Textos Educativos */
-        .bloco-ensino {
-            margin: 25px 0;
-        }
+  /* ===== CARDS ===== */
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 
-        .item-ensino {
-            background-color: #f1f5f9;
-            padding: 20px;
-            border-left: 8px solid var(--primaria);
-            margin-bottom: 20px;
-            border-radius: 4px;
-        }
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .card-emoji {
+    font-size: 28px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .card-subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .card p { font-size: 15px; color: var(--text-muted); margin-bottom: 12px; }
+  .card p:last-child { margin-bottom: 0; }
+  .card strong { color: var(--text); font-weight: 600; }
 
-        .item-ensino h3 {
-            color: var(--primaria);
-            margin-bottom: 8px;
-            font-size: 1.2rem;
-        }
+  /* Highlight boxes inside cards */
+  .highlight-box {
+    background: var(--olive-pale);
+    border-left: 3px solid var(--olive);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--olive);
+    margin: 12px 0;
+    font-weight: 500;
+  }
+  .highlight-box.amber {
+    background: var(--amber-pale);
+    border-color: var(--amber);
+    color: #8A5500;
+  }
+  .highlight-box.sky {
+    background: var(--sky-pale);
+    border-color: var(--sky);
+    color: #1A4A60;
+  }
+  .highlight-box.rust {
+    background: var(--rust-pale);
+    border-color: var(--rust);
+    color: #7A2A10;
+  }
 
-        .item-ensino p {
-            font-size: 1rem;
-            color: #4a5568;
-        }
+  /* Example tags */
+  .example-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .tag {
+    background: var(--cream-dark);
+    color: var(--text-muted);
+    font-size: 13px;
+    padding: 5px 12px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+  }
+  .tag.green { background: var(--olive-pale); color: var(--olive); border-color: #B8C8A0; }
+  .tag.amber { background: var(--amber-pale); color: #8A5500; border-color: #EBB96A; }
 
-        /* Campos de Entrada */
-        .grupo-input {
-            margin-bottom: 30px;
-        }
+  /* ===== TABLE-LIKE ===== */
+  .table-block {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    margin-top: 12px;
+  }
+  .table-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .table-row:last-child { border-bottom: none; }
+  .table-row:nth-child(odd) { background: var(--cream); }
+  .table-row .label { color: var(--text-muted); }
+  .table-row .value { font-weight: 600; color: var(--text); }
+  .table-row .value.green { color: var(--olive); }
+  .table-row .value.amber { color: var(--amber); }
+  .table-row .value.red { color: var(--rust); }
 
-        label {
-            display: block;
-            font-weight: 700;
-            margin-bottom: 10px;
-            font-size: 1.15rem;
-        }
+  /* ===== TRANSITION SECTION ===== */
+  .transition-section {
+    background: linear-gradient(135deg, var(--olive) 0%, #3A6B30 100%);
+    border-radius: 20px;
+    padding: 48px 36px;
+    text-align: center;
+    margin: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .transition-section::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .transition-section::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -20px;
+    width: 160px; height: 160px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .transition-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(24px, 4vw, 36px);
+    color: #fff;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .transition-section p {
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--amber-light);
+    color: var(--text);
+    font-family: 'Sora', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 16px 36px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+  }
+  .cta-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+  }
 
-        .texto-apoio {
-            font-size: 0.95rem;
-            color: #64748b;
-            margin-bottom: 15px;
-            display: block;
-        }
+  /* ===== ASSISTENTE ===== */
+  #assistente {
+    padding-top: 20px;
+  }
 
-        input, select {
-            width: 100%;
-            padding: 18px;
-            border: 2px solid var(--borda);
-            border-radius: 10px;
-            font-size: 1.1rem;
-        }
+  .assistant-wrapper {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
 
-        /* Botoes de Acao */
-        .botao {
-            display: block;
-            width: 100%;
-            padding: 22px;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.25rem;
-            font-weight: 700;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
+  .assistant-topbar {
+    background: var(--olive);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .assistant-avatar {
+    width: 44px; height: 44px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    border: 2px solid rgba(255,255,255,0.25);
+  }
+  .assistant-name {
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .assistant-status {
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    margin-top: 1px;
+  }
+  .assistant-progress {
+    margin-left: auto;
+    text-align: right;
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    font-weight: 600;
+  }
 
-        .botao-primario {
-            background-color: var(--primaria);
-            color: var(--branco);
-        }
+  /* Chat messages */
+  .chat-area {
+    padding: 24px;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 
-        .botao-voltar {
-            background-color: #edf2f7;
-            color: #4a5568;
-            margin-top: 15px;
-        }
+  .msg {
+    display: flex;
+    gap: 10px;
+    animation: fadeSlideIn 0.3s ease;
+  }
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-        /* Area de Resultados */
-        .quadro-resultado {
-            background-color: #2d3748;
-            color: var(--branco);
-            padding: 35px;
-            border-radius: 12px;
-            text-align: center;
-        }
+  .msg.assistant { align-items: flex-start; }
+  .msg.user { align-items: flex-end; flex-direction: row-reverse; }
 
-        .destaque-valor {
-            font-size: 3rem;
-            font-weight: 900;
-            color: #63b3ed;
-            margin: 15px 0;
-            display: block;
-        }
+  .msg-avatar {
+    width: 32px; height: 32px;
+    background: var(--olive-pale);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .msg.user .msg-avatar { background: var(--amber-pale); }
 
-        footer {
-            margin-top: 60px;
-            padding: 30px;
-            text-align: center;
-            border-top: 1px solid var(--borda);
-        }
+  .msg-bubble {
+    max-width: 85%;
+    padding: 13px 17px;
+    border-radius: 16px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .msg.assistant .msg-bubble {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-top-left-radius: 4px;
+    color: var(--text);
+  }
+  .msg.user .msg-bubble {
+    background: var(--olive);
+    color: #fff;
+    border-top-right-radius: 4px;
+  }
+  .msg-bubble strong { font-weight: 700; }
+  .msg-bubble ul { padding-left: 18px; margin: 8px 0; }
+  .msg-bubble li { margin-bottom: 4px; }
 
-        .sociais a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: var(--primaria);
-            font-weight: 700;
-        }
-    </style>
+  /* Input area */
+  .input-area {
+    border-top: 1px solid var(--border);
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .input-question {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    padding-bottom: 6px;
+  }
+
+  .input-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .opt-btn {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    padding: 10px 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.18s;
+    font-weight: 500;
+  }
+  .opt-btn:hover { background: var(--olive-pale); border-color: var(--olive-light); color: var(--olive); }
+  .opt-btn.selected { background: var(--olive); border-color: var(--olive); color: #fff; }
+
+  .input-number-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .input-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 500;
+    min-width: 160px;
+  }
+  .input-field {
+    background: var(--cream);
+    border: 1.5px solid var(--border);
+    color: var(--text);
+    font-family: 'Sora', sans-serif;
+    font-size: 15px;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 180px;
+  }
+  .input-field:focus { border-color: var(--olive); }
+
+  .btn-primary {
+    background: var(--olive);
+    color: #fff;
+    font-family: 'Sora', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 12px 28px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary:hover { background: var(--olive-light); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text-muted);
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--olive-light); color: var(--olive); }
+
+  /* ===== RESULTADO SIMULAÇÃO ===== */
+  .resultado-section { animation: fadeSlideIn 0.4s ease; }
+
+  .resultado-card {
+    background: linear-gradient(135deg, #f8fdf5 0%, #f0f8e8 100%);
+    border: 1.5px solid #B8D4A0;
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 16px;
+  }
+  .resultado-card.warning {
+    background: linear-gradient(135deg, var(--amber-pale) 0%, #fef9ee 100%);
+    border-color: #EBB96A;
+  }
+  .resultado-card.info {
+    background: var(--sky-pale);
+    border-color: #94C4D8;
+  }
+
+  .resultado-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+
+  .result-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+  }
+  .result-number.green { color: var(--olive); }
+  .result-number.amber { color: var(--amber); }
+  .result-number.red { color: var(--rust); }
+
+  .result-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    margin-bottom: 16px;
+  }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .comp-box {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    background: #fff;
+    text-align: center;
+  }
+  .comp-box h4 { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; font-weight: 500; }
+  .comp-box .num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--text);
+  }
+  .comp-box .num.good { color: var(--olive); }
+  .comp-box .num.bad { color: var(--rust); }
+  .comp-box .sub { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+  .alert-list { list-style: none; }
+  .alert-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 14px;
+    color: var(--text-muted);
+    align-items: flex-start;
+  }
+  .alert-item:last-child { border-bottom: none; }
+  .alert-item .ai { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  /* ===== RESUMO FINAL ===== */
+  .resumo-section { margin-top: 8px; }
+  .resumo-block {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .resumo-block-head {
+    background: var(--cream-dark);
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .resumo-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .resumo-row:last-child { border-bottom: none; }
+  .resumo-row .rk { color: var(--text-muted); }
+  .resumo-row .rv { font-weight: 600; color: var(--text); }
+
+  .print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--cream);
+    color: var(--text);
+    border: 1px solid var(--border);
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px 22px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .print-btn:hover { background: var(--olive-pale); border-color: var(--olive-light); }
+
+  .restart-btn {
+    background: var(--olive);
+    color: #fff;
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px 22px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .restart-btn:hover { background: var(--olive-light); }
+
+  .action-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  /* ===== DISCLAIMER FINAL ===== */
+  .disclaimer-box {
+    background: var(--rust-pale);
+    border: 1px solid #EBBBA8;
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .disclaimer-box h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--rust);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .disclaimer-box ul {
+    list-style: none;
+    font-size: 13px;
+    color: #7A3A24;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .disclaimer-box li::before { content: "→ "; font-weight: 700; }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.7);
+    padding: 40px 24px;
+    text-align: center;
+    margin-top: 60px;
+  }
+  .footer-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .footer-role {
+    font-size: 13px;
+    margin-bottom: 24px;
+    color: rgba(255,255,255,0.5);
+  }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 14px;
+    padding: 9px 18px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  .footer-link:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border-color: rgba(255,255,255,0.3);
+  }
+  .footer-link .link-icon { font-size: 16px; }
+  .footer-legal {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 20px;
+    line-height: 1.8;
+  }
+
+  /* ===== RESPONSIVO ===== */
+  @media (max-width: 600px) {
+    .comparison-grid { grid-template-columns: 1fr; }
+    .transition-section { padding: 36px 24px; }
+    .assistant-topbar { padding: 14px 18px; }
+    .chat-area { padding: 16px; }
+    .input-area { padding: 16px; }
+    .card { padding: 20px; }
+    .site-header { top: 34px; }
+    .legal-bar { font-size: 11px; padding: 8px 14px; }
+  }
+
+  /* ===== UTILITIES ===== */
+  .hidden { display: none !important; }
+  .text-center { text-align: center; }
+  .mt-8 { margin-top: 8px; }
+  .mt-16 { margin-top: 16px; }
+
+  /* ===== PROGRESS DOTS ===== */
+  .progress-dots {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    transition: background 0.3s, width 0.3s;
+  }
+  .dot.active { background: var(--olive); width: 22px; border-radius: 4px; }
+  .dot.done { background: var(--olive-light); }
+
+  /* ===== SCROLL INDICATOR ===== */
+  .scroll-down {
+    text-align: center;
+    padding: 12px 0 0;
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+</style>
 </head>
 <body>
 
-<div class="container">
-    <div class="caixa-aviso">
-        IMPORTANTE: Esta e uma ferramenta educativa. Os dados digitados permanecem apenas no seu navegador. 
-        Nao enviamos informacoes para o Governo. O uso oficial deve ser feito pelo sistema da Receita Federal.
-    </div>
-
-    <header>
-        <h1>Guia do Imposto de Renda 2026</h1>
-        <p>Aprenda de forma clara e simule seus valores com as novas regras.</p>
-    </header>
-
-    <section id="passo1" class="cartao-secao visivel">
-        <h2>O que e o Imposto de Renda? (Explicacao para o Tio)</h2>
-        <div class="bloco-ensino">
-            <div class="item-ensino">
-                <h3>O Condominio do Pais</h3>
-                <p>Imagine que o Brasil e um grande predio onde todos moramos. O Imposto de Renda e como a taxa de condominio. Quem mora em apartamentos maiores (ganha mais dinheiro) paga uma cota maior para manter os elevadores, a portaria e a limpeza (saude, seguranca e estradas).</p>
-            </div>
-            <div class="item-ensino">
-                <h3>Quem e Isento (Quem nao paga)?</h3>
-                <p>Em 2026, a regra mudou. Se voce ganha ate 5.000,00 reais por mes (totalizando 60.000,00 no ano), voce e considerado isento. Isso significa que o governo entende que voce precisa de todo esse dinheiro para sobreviver e nao cobrara o imposto sobre o seu salario.</p>
-            </div>
-            <div class="item-ensino">
-                <h3>Os Descontos (Deducoes)</h3>
-                <p>O governo da descontos para quem cuida da propria saude e da educacao da familia. Se voce gastou dinheiro com dentista ou escola, voce avisa o governo e ele diminui o valor do seu imposto. E como um "vale-desconto" por voce estar investindo em si mesmo.</p>
-            </div>
-            <div class="item-ensino">
-                <h3>O que acontece se nao declarar?</h3>
-                <p>Se voce era obrigado a declarar e nao fez, seu CPF pode ficar bloqueado. Isso impede de aposentar, tirar passaporte ou fazer emprestimos em bancos.</p>
-            </div>
-        </div>
-        <p style="font-weight: 700; margin-bottom: 20px;">Pronto para ver sua situacao? Clique no botao abaixo.</p>
-        <button class="botao botao-primario" onclick="mudarPasso(2)">Simular Minha Declaracao</button>
-    </section>
-
-    <section id="passo2" class="cartao-secao">
-        <h2>Dinheiro que entrou em 2025</h2>
-        <div class="grupo-input">
-            <label>Salario ou Aposentadoria (Soma do ano inteiro)</label>
-            <span class="texto-apoio">Va somando todos os meses que voce recebeu do INSS ou da empresa. Se nao teve, pode colocar 0 ou deixar vazio.</span>
-            <input type="number" id="renda_anual" placeholder="0.00">
-        </div>
-        <div class="grupo-input">
-            <label>Outras Rendas (Bicos, Alugueis, Extras)</label>
-            <span class="texto-apoio">Qualquer outro dinheiro que entrou na sua conta durante o ano.</span>
-            <input type="number" id="renda_outra" placeholder="0.00">
-        </div>
-        <button class="botao botao-primario" onclick="mudarPasso(3)">Proximo Passo: Gastos</button>
-        <button class="botao botao-voltar" onclick="mudarPasso(1)">Voltar para a Explicacao</button>
-    </section>
-
-    <section id="passo3" class="cartao-secao">
-        <h2>Gastos e Familia</h2>
-        <div class="grupo-input">
-            <label>Pessoas que dependem de voce</label>
-            <span class="texto-apoio">Filhos ate 21 anos, esposa/marido que nao trabalha ou pais que ganham pouco.</span>
-            <select id="dependentes">
-                <option value="0">Nenhuma pessoa</option>
-                <option value="1">1 Pessoa</option>
-                <option value="2">2 Pessoas</option>
-                <option value="3">3 ou mais pessoas</option>
-            </select>
-        </div>
-        <div class="grupo-input">
-            <label>Gastos com Saude e Medicos</label>
-            <span class="texto-apoio">Consultas, exames e plano de saude. Nao inclua gastos com farmacia.</span>
-            <input type="number" id="saude" placeholder="0.00">
-        </div>
-        <button class="botao botao-primario" onclick="processarCalculo()">Ver Resultado Final</button>
-        <button class="botao botao-voltar" onclick="mudarPasso(2)">Voltar</button>
-    </section>
-
-    <section id="passo4" class="cartao-secao">
-        <h2>Resultado da Simulacao</h2>
-        <div class="quadro-resultado">
-            <p id="titulo_resultado">Valor Estimado:</p>
-            <span class="destaque-valor" id="valor_resultado">R$ 0,00</span>
-            <p id="explicacao_final" style="font-size: 0.95rem;"></p>
-        </div>
-        <div id="area_resumo" style="margin-top: 25px; padding: 20px; background: #f8fafc; border-radius: 8px;">
-            </div>
-        <button class="botao botao-voltar" onclick="location.reload()">Refazer Tudo</button>
-    </section>
-
-    <footer>
-        <div class="sociais">
-            <a href="https://linkedin.com/in/douglasyohan" target="_blank">LinkedIn</a>
-            <a href="https://github.com/Douglasyohan" target="_blank">GitHub</a>
-            <a href="https://lattes.cnpq.br/4064564945245811" target="_blank">Lattes</a>
-        </div>
-        <p style="margin-top: 15px; font-size: 0.85rem; color: #718096;">Projeto Educativo para Auxilio ao Contribuinte. 2026.</p>
-    </footer>
+<!-- AVISO LEGAL TOPO -->
+<div class="legal-bar">
+  ⚠️ Ferramenta educacional e de simulação <span>•</span> Não é da Receita Federal <span>•</span> Não substitui o sistema oficial <span>•</span> Dados ficam apenas no seu navegador
 </div>
 
+<!-- HEADER -->
+<header class="site-header">
+  <a class="site-logo" href="#">
+    <div class="logo-icon">📋</div>
+    Guia IR 2026
+  </a>
+  <button class="nav-btn" onclick="scrollToAssistente()">Simular agora →</button>
+</header>
+
+<div class="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">IRPF 2026 · Guia gratuito</div>
+    <h1>Entenda o imposto de renda<br><em>do zero, sem complicação</em></h1>
+    <p class="hero-sub">Um guia didático + simulador gratuito para você entender se precisa declarar e organizar as suas informações.</p>
+    <div class="hero-disclaimer">⚠️ Simulação educacional — não é da Receita Federal e não envia dados para nenhum servidor</div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- BLOCO EDUCACIONAL -->
+  <!-- ============================================================ -->
+
+  <div class="section-head">
+    <div class="section-head-icon">📚</div>
+    <div class="section-head-text">
+      <h2>Entenda primeiro</h2>
+      <p>O mini guia completo para quem nunca declarou</p>
+    </div>
+  </div>
+
+  <!-- CARD 1: O QUE É IR -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-emoji">🏛️</div>
+      <div>
+        <div class="card-title">O que é o imposto de renda?</div>
+        <div class="card-subtitle">A ideia por trás do imposto</div>
+      </div>
+    </div>
+    <p>Sabe quando você trabalha e recebe um salário? Parte desse dinheiro vai para o governo. Esse desconto se chama <strong>Imposto de Renda</strong>.</p>
+    <p>O governo usa esse dinheiro para pagar saúde pública, escolas, estradas e outras coisas que são de todos. Quanto mais você ganha, maior é a parte que você contribui.</p>
+    <div class="highlight-box">💡 Quem ganha pouco fica isento (não paga nada). Quem ganha mais contribui com uma parte maior.</div>
+    <p>Mas além de descontar no seu salário todo mês, uma vez por ano você precisa fazer a chamada <strong>declaração de IR</strong>. É como um "acerto de contas" com o governo: você mostra tudo que ganhou e o governo confere se o que foi descontado durante o ano estava certo.</p>
+    <p>Se descontou demais → você recebe de volta (<strong>restituição</strong>). Se descontou de menos → você paga a diferença.</p>
+  </div>
+
+  <!-- CARD 2: QUEM PRECISA DECLARAR -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-emoji">🤔</div>
+      <div>
+        <div class="card-title">Quem precisa declarar?</div>
+        <div class="card-subtitle">Veja se você se encaixa em algum caso</div>
+      </div>
+    </div>
+    <p>Você é <strong>obrigado</strong> a fazer a declaração se se encaixar em pelo menos uma dessas situações:</p>
+    <div class="table-block">
+      <div class="table-row"><span class="label">💰 Ganhou acima de R$ 60.000</span><span class="value amber">no ano todo</span></div>
+      <div class="table-row"><span class="label">🏦 Recebeu renda isenta acima de R$ 200.000</span><span class="value amber">ex: FGTS, heranças</span></div>
+      <div class="table-row"><span class="label">🏠 Tem bens acima de R$ 800.000</span><span class="value amber">casa, carro, etc.</span></div>
+      <div class="table-row"><span class="label">📈 Fez investimentos na bolsa</span><span class="value amber">qualquer valor</span></div>
+      <div class="table-row"><span class="label">💼 Vendeu algo com lucro</span><span class="value amber">imóvel, carro</span></div>
+      <div class="table-row"><span class="label">🌍 Passou a morar no Brasil</span><span class="value amber">no ano-base</span></div>
+    </div>
+    <div class="highlight-box amber">📌 Esses valores são referência para 2026 (ano-base 2025). O simulador abaixo usa esses critérios.</div>
+    <p><strong>Exemplos do dia a dia:</strong></p>
+    <div class="example-row">
+      <span class="tag green">✅ Salário de R$ 3.500/mês</span>
+      <span class="tag green">✅ Vendeu um carro com lucro</span>
+      <span class="tag green">✅ Recebeu aluguel</span>
+      <span class="tag green">✅ Tem ações na bolsa</span>
+      <span class="tag">❓ Salário de R$ 2.000/mês (verifique)</span>
+    </div>
+  </div>
+
+  <!-- CARD 3: O QUE PRECISA SER INFORMADO -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-emoji">📋</div>
+      <div>
+        <div class="card-title">O que você precisa informar?</div>
+        <div class="card-subtitle">Sem termos técnicos</div>
+      </div>
+    </div>
+    <p>Na declaração você informa três tipos de coisas:</p>
+
+    <div class="highlight-box sky">
+      <strong>1. O dinheiro que você recebeu</strong><br>
+      Salário, bico, aluguel que recebeu, pensão, bolsa de estudos, etc.
+    </div>
+    <div class="highlight-box sky" style="margin-top:8px">
+      <strong>2. As coisas que você tem</strong><br>
+      Casa, apartamento, carro, dinheiro no banco, investimentos.
+    </div>
+    <div class="highlight-box sky" style="margin-top:8px">
+      <strong>3. Gastos que podem reduzir seu imposto</strong><br>
+      Médico, dentista, escola, faculdade, plano de saúde, dependentes na família.
+    </div>
+
+    <p class="mt-16">Você não precisa de tudo na cabeça: basta juntar os documentos (comprovantes, recibos, extratos) e o simulador abaixo vai ajudar a organizar.</p>
+  </div>
+
+  <!-- CARD 4: COMO FUNCIONA O IMPOSTO -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-emoji">📊</div>
+      <div>
+        <div class="card-title">Como o imposto é calculado?</div>
+        <div class="card-subtitle">A tabela progressiva em linguagem humana</div>
+      </div>
+    </div>
+    <p>O governo usa uma tabela: quanto mais você ganha, maior a porcentagem. Mas isso não significa que você paga a porcentagem maior em cima de <em>tudo</em> — só na parte que ultrapassa cada faixa.</p>
+
+    <div class="table-block">
+      <div class="table-row"><span class="label">Até R$ 5.000/mês</span><span class="value green">0% — isento</span></div>
+      <div class="table-row"><span class="label">De R$ 5.001 a R$ 6.252/mês</span><span class="value">7,5%</span></div>
+      <div class="table-row"><span class="label">De R$ 6.253 a R$ 7.664/mês</span><span class="value">15%</span></div>
+      <div class="table-row"><span class="label">De R$ 7.665 a R$ 9.830/mês</span><span class="value amber">22,5%</span></div>
+      <div class="table-row"><span class="label">Acima de R$ 9.830/mês</span><span class="value red">27,5%</span></div>
+    </div>
+    <div class="highlight-box">💡 <strong>Exemplo:</strong> Quem ganha R$ 5.000/mês não paga 22,5% de R$ 5.000. Cada parte do salário é taxada na sua faixa. O total acaba sendo bem menor que a alíquota máxima.</div>
+    <p class="mt-16">E os <strong>gastos com saúde, educação e dependentes</strong> funcionam como desconto: eles reduzem a base de cálculo, ou seja, diminuem o valor sobre o qual o imposto incide.</p>
+  </div>
+
+  <!-- CARD 5: O QUE ACONTECE SE ERRAR -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-emoji">⚠️</div>
+      <div>
+        <div class="card-title">E se eu errar ou não declarar?</div>
+        <div class="card-subtitle">Sem alarmismo — mas é bom saber</div>
+      </div>
+    </div>
+    <p>Se você é obrigado a declarar e não fizer isso, pode ter alguns problemas:</p>
+    <div class="table-block">
+      <div class="table-row"><span class="label">📌 Cair na malha fina</span><span class="value amber">Receita pede explicações</span></div>
+      <div class="table-row"><span class="label">💸 Multa por atraso</span><span class="value amber">Mínimo R$ 165,74</span></div>
+      <div class="table-row"><span class="label">🚫 CPF irregular</span><span class="value red">Pode bloquear financiamentos</span></div>
+    </div>
+    <p class="mt-16">Mas calma: se você errar algo sem querer, existe a <strong>declaração retificadora</strong> — uma forma de corrigir a declaração depois. O importante é tentar declarar corretamente e, se tiver dúvidas, procurar um contador.</p>
+    <div class="highlight-box">💡 O prazo de entrega em 2026 geralmente vai de março a abril. Fique de olho no site da Receita Federal para a data exata.</div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TRANSIÇÃO -->
+  <!-- ============================================================ -->
+  <div class="transition-section">
+    <h2>Agora que você entendeu como funciona o imposto de renda…</h2>
+    <p>Você sabe se precisa declarar? Simule aqui e veja sua estimativa.</p>
+    <a href="#assistente" class="cta-btn" onclick="scrollToAssistente()">Simular meu IR 2026 👇</a>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- ASSISTENTE -->
+  <!-- ============================================================ -->
+  <div id="assistente">
+    <div class="section-head">
+      <div class="section-head-icon">🤖</div>
+      <div class="section-head-text">
+        <h2>Assistente de Simulação</h2>
+        <p>Responda as perguntas para ver sua estimativa personalizada</p>
+      </div>
+    </div>
+
+    <!-- PROGRESS DOTS -->
+    <div class="progress-dots" id="progressDots">
+      <div class="dot active" id="dot0"></div>
+      <div class="dot" id="dot1"></div>
+      <div class="dot" id="dot2"></div>
+      <div class="dot" id="dot3"></div>
+      <div class="dot" id="dot4"></div>
+      <div class="dot" id="dot5"></div>
+    </div>
+
+    <div class="assistant-wrapper">
+      <!-- TOP BAR -->
+      <div class="assistant-topbar">
+        <div class="assistant-avatar">🤖</div>
+        <div>
+          <div class="assistant-name">Assistente IR</div>
+          <div class="assistant-status" id="assistantStatus">Pronto para começar</div>
+        </div>
+        <div class="assistant-progress" id="assistantProgress">Passo 1 de 6</div>
+      </div>
+
+      <!-- CHAT -->
+      <div class="chat-area" id="chatArea"></div>
+
+      <!-- INPUT -->
+      <div class="input-area" id="inputArea">
+        <div class="input-question" id="inputQuestion"></div>
+        <div id="inputControls"></div>
+      </div>
+    </div>
+
+    <!-- RESULTADO (oculto até simulação) -->
+    <div id="resultadoArea" class="hidden resultado-section"></div>
+  </div>
+
+  <!-- DISCLAIMER LEGAL -->
+  <div class="disclaimer-box">
+    <h4>⚠️ Aviso Legal Importante</h4>
+    <ul>
+      <li>Esta é uma ferramenta educacional e de estimativa — não é da Receita Federal</li>
+      <li>Não substitui o Programa IRPF oficial ou um contador profissional</li>
+      <li>Os valores são estimativas aproximadas baseados em dados informados por você</li>
+      <li>Você é o único responsável pela sua declaração oficial</li>
+      <li>Nenhum dado sai do seu navegador — tudo fica local</li>
+    </ul>
+  </div>
+
+</div><!-- /main -->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-name">Douglas Yohan</div>
+  <div class="footer-role">Ciências Contábeis · UNICENTRO · Iniciação Científica</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/douglasyohan/" target="_blank" class="footer-link">
+      <span class="link-icon">💼</span> LinkedIn
+    </a>
+    <a href="https://github.com/Douglasyohan" target="_blank" class="footer-link">
+      <span class="link-icon">🐙</span> GitHub
+    </a>
+    <a href="http://lattes.cnpq.br/4064564945245811" target="_blank" class="footer-link">
+      <span class="link-icon">🎓</span> Lattes CNPq
+    </a>
+  </div>
+  <div class="footer-legal">
+    Ferramenta educacional independente · Não é da Receita Federal · Não substitui o sistema oficial<br>
+    Desenvolvido como projeto de Iniciação Científica · UNICENTRO · Guarapuava–PR · 2026
+  </div>
+</footer>
+
 <script>
-    /**
-     * Gerencia a navegacao entre as sessoes da aplicacao
-     * @param {number} numeroPasso - Identificador da secao ativa
-     */
-    function mudarPasso(numeroPasso) {
-        document.querySelectorAll('.cartao-secao').forEach(c => c.classList.remove('visivel'));
-        document.getElementById('passo' + numeroPasso).classList.add('visivel');
-        window.scrollTo(0, 0);
+// ================================================================
+// DADOS E ESTADO
+// ================================================================
+const state = {
+  step: 0,
+  dados: {
+    estadoCivil: null,
+    dependentes: 0,
+    rendaSalario: 0,
+    rendaExtra: 0,
+    rendaInvest: 0,
+    gastosSaude: 0,
+    gastosEducacao: 0,
+    temImovel: false,
+    valorImovel: 0,
+    temCarro: false,
+    valorCarro: 0,
+    modeloDesconto: null
+  }
+};
+
+const DEDUCAO_POR_DEPENDENTE = 2275.08; // anual
+const DEDUCAO_MAX_EDUCACAO = 3561.50; // anual
+const TABELA = [
+  { limite: 60000,   aliq: 0,     deducao: 0        },
+  { limite: 75024,   aliq: 0.075, deducao: 4500.00  },
+  { limite: 91968,   aliq: 0.15,  deducao: 9189.00  },
+  { limite: 117960,  aliq: 0.225, deducao: 15624.00 },
+  { limite: Infinity,aliq: 0.275, deducao: 21513.00 }
+];
+
+// ================================================================
+// PASSOS DO ASSISTENTE
+// ================================================================
+const steps = [
+  {
+    id: 0,
+    botMsg: `Olá! 👋 Sou seu assistente de simulação do IR 2026.\n\nVou te fazer algumas perguntas simples para estimar seu imposto e organizar suas informações.\n\n<strong>Não precisa se preocupar</strong> — nenhum dado sai do seu navegador. Vamos começar?\n\nPrimeiro: qual é o seu estado civil?`,
+    type: 'options',
+    options: ['Solteiro(a)', 'Casado(a)', 'Divorciado(a)', 'Viúvo(a)', 'União estável'],
+    key: 'estadoCivil'
+  },
+  {
+    id: 1,
+    botMsg: `Ótimo! Você tem <strong>dependentes</strong> para declarar?\n\nDependentes são pessoas que dependem financeiramente de você: filhos, cônjuge sem renda, pais que você sustenta.\n\nCada dependente pode reduzir seu imposto!`,
+    type: 'options',
+    options: ['Nenhum', '1 dependente', '2 dependentes', '3 ou mais'],
+    key: 'dependentes',
+    map: { 'Nenhum': 0, '1 dependente': 1, '2 dependentes': 2, '3 ou mais': 3 }
+  },
+  {
+    id: 2,
+    botMsg: `Agora vamos falar sobre o <strong>dinheiro que você recebeu</strong> em 2025.\n\nNão precisa ser exato — uma estimativa já ajuda bastante. Informe os valores <strong>anuais</strong> (some todos os meses).`,
+    type: 'numbers',
+    fields: [
+      { key: 'rendaSalario', label: '💼 Salário / pro-labore (anual)' },
+      { key: 'rendaExtra', label: '🛠️ Trabalhos extras / bicos (anual)' },
+      { key: 'rendaInvest', label: '📈 Aluguéis / investimentos (anual)' }
+    ]
+  },
+  {
+    id: 3,
+    botMsg: `Muito bem! Agora os <strong>gastos que podem reduzir seu imposto</strong>.\n\nSão os gastos com saúde e educação que você pagou do próprio bolso (não reembolsados por plano).`,
+    type: 'numbers',
+    fields: [
+      { key: 'gastosSaude', label: '🏥 Saúde: médico, dentista, plano (anual)' },
+      { key: 'gastosEducacao', label: '🎓 Educação: escola, faculdade (anual, máx. R$ 3.561)' }
+    ]
+  },
+  {
+    id: 4,
+    botMsg: `Agora sobre o que você <strong>possui</strong>.\n\nNa declaração você informa seus bens — isso serve para mostrar que seu patrimônio é compatível com sua renda.`,
+    type: 'numbers',
+    fields: [
+      { key: 'valorImovel', label: '🏠 Imóveis (valor de compra, se tiver)' },
+      { key: 'valorCarro', label: '🚗 Veículos (valor de compra, se tiver)' }
+    ]
+  },
+  {
+    id: 5,
+    botMsg: `Quase lá! Última pergunta: como você prefere declarar?\n\nExistem dois modelos:\n\n• <strong>Desconto simples (20%)</strong>: o governo desconta automaticamente 20% da sua renda como dedução. Mais simples, mas nem sempre o melhor.\n\n• <strong>Modelo completo (com gastos)</strong>: você informa todos os gastos e usa eles como dedução. Pode ser mais vantajoso se tiver muitos gastos.`,
+    type: 'options',
+    options: ['Desconto simples (20%)', 'Declaração completa (com gastos)'],
+    key: 'modeloDesconto'
+  }
+];
+
+// ================================================================
+// FUNÇÕES UTILITÁRIAS
+// ================================================================
+function fmt(v) {
+  return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(v);
+}
+
+function calcIR(baseCalculo) {
+  if (baseCalculo <= 0) return 0;
+  for (const faixa of TABELA) {
+    if (baseCalculo <= faixa.limite) {
+      return Math.max(0, baseCalculo * faixa.aliq - faixa.deducao);
     }
+  }
+  return 0;
+}
 
-    /**
-     * Converte numeros para o formato de moeda brasileira (BRL)
-     * @param {number} n - Valor numerico
-     * @returns {string} Valor formatado
-     */
-    function formatar(n) {
-        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(n);
-    }
+function calcularSimulacao() {
+  const d = state.dados;
+  const rendaTotal = d.rendaSalario + d.rendaExtra + d.rendaInvest;
 
-    /**
-     * Lógica principal de calculo fiscal baseada na isencao de 60 mil anuais (5k mensais)
-     */
-    function processarCalculo() {
-        // Captura de entradas do usuario
-        const rendaAnual = parseFloat(document.getElementById('renda_anual').value) || 0;
-        const rendaExtra = parseFloat(document.getElementById('renda_outra').value) || 0;
-        const rendaTotal = rendaAnual + rendaExtra;
+  // INSS estimado (simplificado)
+  const inssAnual = Math.min(d.rendaSalario * 0.09, 9000);
 
-        const dependentes = parseInt(document.getElementById('dependentes').value);
-        const gastoSaude = parseFloat(document.getElementById('saude').value) || 0;
+  // Deduções dependentes
+  const dedDependentes = d.dependentes * DEDUCAO_POR_DEPENDENTE;
 
-        const limiteIsencao = 60000; // Limite de 5 mil mensais projetado para 2026
-        let impostoFinal = 0;
-        let mensagem = "";
+  // Saúde: sem limite. Educação: com limite
+  const dedSaude = d.gastosSaude;
+  const dedEducacao = Math.min(d.gastosEducacao, DEDUCAO_MAX_EDUCACAO);
 
-        // Verificacao de Isencao Direta
-        if (rendaTotal <= limiteIsencao) {
-            impostoFinal = 0;
-            document.getElementById('titulo_resultado').innerText = "Voce esta ISENTO!";
-            mensagem = "Como voce ganhou menos de 60 mil no ano, o governo nao cobrara imposto sobre sua renda.";
-        } else {
-            // Simulacao de Calculo Progressivo (Simplificado para fins educativos)
-            // Abatimento de dependentes (media de 2.200 por pessoa) e gastos de saude
-            const abatimentoFamiliar = dependentes * 2275;
-            const baseCalculo = Math.max(0, rendaTotal - limiteIsencao - abatimentoFamiliar - gastoSaude);
-            
-            // Aliquota estimada de 15% sobre o excedente da isencao
-            impostoFinal = baseCalculo * 0.15;
-            document.getElementById('titulo_resultado').innerText = "Imposto Estimado a Pagar:";
-            mensagem = "Voce ultrapassou a faixa de isencao. O valor acima e uma estimativa do que voce deve pagar.";
-        }
+  // BASE SIMPLES (20%)
+  const dedSimples = Math.min(rendaTotal * 0.20, 16754.34);
+  const baseSimples = Math.max(0, rendaTotal - inssAnual - dedSimples - dedDependentes);
+  const irSimples = calcIR(baseSimples);
 
-        // Atualizacao da Interface
-        document.getElementById('valor_resultado').innerText = formatar(impostoFinal);
-        document.getElementById('explicacao_final').innerText = mensagem;
+  // BASE COMPLETO
+  const dedCompleto = dedSaude + dedEducacao;
+  const baseCompleto = Math.max(0, rendaTotal - inssAnual - dedCompleto - dedDependentes);
+  const irCompleto = calcIR(baseCompleto);
 
-        // Geracao do Resumo para facilitar o preenchimento no sistema oficial
-        document.getElementById('area_resumo').innerHTML = `
-            <h3>Resumo para o Programa da Receita:</h3>
-            <p><strong>Total de Ganhos:</strong> ${formatar(rendaTotal)}</p>
-            <p><strong>Dependentes:</strong> ${dependentes} pessoa(s)</p>
-            <p><strong>Saude (Deducao):</strong> ${formatar(gastoSaude)}</p>
-            <p style="margin-top:10px; font-style: italic; color: #4a5568;">Dica: Ao abrir o programa oficial, procure por 'Rendimentos Tributaveis' para colocar seus ganhos.</p>
-        `;
+  // Retido na fonte (estimativa: 10% da renda de salário)
+  const retidoFonte = d.rendaSalario * 0.10;
 
-        mudarPasso(4);
-    }
+  const irEscolhido = d.modeloDesconto === 'Desconto simples (20%)' ? irSimples : irCompleto;
+  const diferenca = irEscolhido - retidoFonte;
+
+  const precisaDeclarar = rendaTotal > 60000 || d.rendaInvest > 0 || (d.valorImovel + d.valorCarro) > 800000;
+
+  const alertas = [];
+  if (d.rendaExtra > d.rendaSalario * 0.5) alertas.push({ icon: '📊', txt: 'Sua renda extra é significativa — registre todos os comprovantes.' });
+  if (d.gastosEducacao > DEDUCAO_MAX_EDUCACAO) alertas.push({ icon: '🎓', txt: `Gastos com educação têm limite de ${fmt(DEDUCAO_MAX_EDUCACAO)}. O excedente não é dedutível.` });
+  if (d.rendaInvest > 0) alertas.push({ icon: '📈', txt: 'Quem tem renda de investimentos é obrigado a declarar, independente do valor total.' });
+  if (!precisaDeclarar) alertas.push({ icon: '✅', txt: `Sua renda total (${fmt(rendaTotal)}) pode estar abaixo do limite de obrigatoriedade. Mas confirme com um contador.` });
+  if (d.dependentes >= 3) alertas.push({ icon: '👨‍👩‍👧', txt: '3+ dependentes: certifique-se de ter CPF de todos declarados.' });
+
+  return { rendaTotal, irSimples, irCompleto, irEscolhido, baseSimples, baseCompleto, retidoFonte, diferenca, precisaDeclarar, alertas, dedSimples, dedCompleto: dedSaude + dedEducacao + dedDependentes, inssAnual };
+}
+
+// ================================================================
+// RENDERIZAÇÃO DO ASSISTENTE
+// ================================================================
+function addBotMessage(html) {
+  const chat = document.getElementById('chatArea');
+  const msg = document.createElement('div');
+  msg.className = 'msg assistant';
+  msg.innerHTML = `
+    <div class="msg-avatar">🤖</div>
+    <div class="msg-bubble">${html.replace(/\n/g, '<br>')}</div>
+  `;
+  chat.appendChild(msg);
+  msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function addUserMessage(text) {
+  const chat = document.getElementById('chatArea');
+  const msg = document.createElement('div');
+  msg.className = 'msg user';
+  msg.innerHTML = `
+    <div class="msg-avatar">😊</div>
+    <div class="msg-bubble">${text}</div>
+  `;
+  chat.appendChild(msg);
+}
+
+function updateProgress(step) {
+  const total = steps.length;
+  document.getElementById('assistantProgress').textContent = `Passo ${Math.min(step + 1, total)} de ${total}`;
+  document.getElementById('assistantStatus').textContent = step >= total ? 'Simulação concluída!' : 'Respondendo…';
+  for (let i = 0; i < total; i++) {
+    const dot = document.getElementById('dot' + i);
+    if (!dot) continue;
+    dot.className = 'dot';
+    if (i < step) dot.classList.add('done');
+    else if (i === step) dot.classList.add('active');
+  }
+}
+
+function renderStep(stepIdx) {
+  updateProgress(stepIdx);
+  const step = steps[stepIdx];
+  if (!step) return;
+
+  setTimeout(() => {
+    addBotMessage(step.botMsg);
+    renderInput(step);
+  }, 300);
+}
+
+function renderInput(step) {
+  const q = document.getElementById('inputQuestion');
+  const ctrl = document.getElementById('inputControls');
+  q.textContent = '';
+  ctrl.innerHTML = '';
+
+  if (step.type === 'options') {
+    const row = document.createElement('div');
+    row.className = 'input-options';
+    step.options.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'opt-btn';
+      btn.textContent = opt;
+      btn.onclick = () => {
+        document.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        const val = step.map ? step.map[opt] : opt;
+        state.dados[step.key] = val;
+        addUserMessage(opt);
+        setTimeout(() => nextStep(), 400);
+      };
+      row.appendChild(btn);
+    });
+    ctrl.appendChild(row);
+
+  } else if (step.type === 'numbers') {
+    step.fields.forEach(f => {
+      const row = document.createElement('div');
+      row.className = 'input-number-row';
+      row.innerHTML = `
+        <label class="input-label">${f.label}</label>
+        <input class="input-field" type="number" placeholder="R$ 0,00" min="0" id="field_${f.key}">
+      `;
+      ctrl.appendChild(row);
+    });
+
+    const btnRow = document.createElement('div');
+    btnRow.style.cssText = 'display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;';
+    const btnNext = document.createElement('button');
+    btnNext.className = 'btn-primary';
+    btnNext.innerHTML = 'Continuar →';
+    btnNext.onclick = () => {
+      let userMsg = '';
+      step.fields.forEach(f => {
+        const val = parseFloat(document.getElementById('field_' + f.key).value) || 0;
+        state.dados[f.key] = val;
+        if (val > 0) userMsg += `${f.label.replace(/[^a-zA-ZÀ-ú\s\/]/g, '').trim()}: ${fmt(val)}\n`;
+      });
+      if (!userMsg) userMsg = 'Nenhum valor informado';
+      addUserMessage(userMsg.trim());
+      setTimeout(() => nextStep(), 400);
+    };
+    const btnSkip = document.createElement('button');
+    btnSkip.className = 'btn-secondary';
+    btnSkip.textContent = 'Pular (R$ 0)';
+    btnSkip.onclick = () => {
+      step.fields.forEach(f => { state.dados[f.key] = 0; });
+      addUserMessage('Pulei esta etapa');
+      setTimeout(() => nextStep(), 400);
+    };
+    btnRow.appendChild(btnNext);
+    btnRow.appendChild(btnSkip);
+    ctrl.appendChild(btnRow);
+  }
+}
+
+function nextStep() {
+  state.step++;
+  if (state.step < steps.length) {
+    renderStep(state.step);
+  } else {
+    mostrarResultado();
+  }
+}
+
+// ================================================================
+// RESULTADO
+// ================================================================
+function mostrarResultado() {
+  updateProgress(steps.length);
+  document.getElementById('inputArea').innerHTML = '<p style="color:var(--text-muted);font-size:14px;text-align:center;padding:8px">✅ Dados coletados! Veja a simulação abaixo.</p>';
+
+  addBotMessage('Pronto! Calculei sua estimativa com base nas informações fornecidas. Confira o resultado detalhado abaixo 👇');
+
+  const res = calcularSimulacao();
+  const d = state.dados;
+  const area = document.getElementById('resultadoArea');
+  area.classList.remove('hidden');
+
+  const diferencaTexto = res.diferenca < 0
+    ? `<span class="result-number green">${fmt(Math.abs(res.diferenca))}</span><div class="result-label">💚 Estimativa de restituição (pode receber de volta)</div>`
+    : res.diferenca === 0
+    ? `<span class="result-number">R$ 0,00</span><div class="result-label">Nenhuma diferença estimada</div>`
+    : `<span class="result-number red">${fmt(res.diferenca)}</span><div class="result-label">⚠️ Estimativa de imposto a pagar</div>`;
+
+  const precisaDeclararHtml = res.precisaDeclarar
+    ? `<div class="highlight-box amber">⚠️ Com base nos dados informados, você <strong>provavelmente precisa declarar</strong> o IR 2026. Confirme com um contador.</div>`
+    : `<div class="highlight-box" style="background:var(--olive-pale);border-color:var(--olive);color:var(--olive)">✅ Sua renda pode estar abaixo do limite. Mas atenção: se tiver investimentos ou bens acima de R$ 800 mil, a obrigatoriedade ainda se aplica. Confirme com um contador.</div>`;
+
+  const alertasHtml = res.alertas.length > 0 ? `
+    <div class="resultado-card warning">
+      <div class="resultado-title">⚠️ Alertas e observações</div>
+      <ul class="alert-list">
+        ${res.alertas.map(a => `<li class="alert-item"><span class="ai">${a.icon}</span> ${a.txt}</li>`).join('')}
+      </ul>
+    </div>` : '';
+
+  area.innerHTML = `
+    <!-- PRECISA DECLARAR -->
+    <div class="resultado-card">
+      <div class="resultado-title">📋 Preciso declarar?</div>
+      ${precisaDeclararHtml}
+      <div class="table-block" style="margin-top:12px">
+        <div class="table-row"><span class="label">Renda total estimada</span><span class="value">${fmt(res.rendaTotal)}</span></div>
+        <div class="table-row"><span class="label">Limite de obrigatoriedade</span><span class="value">R$ 60.000,00</span></div>
+        <div class="table-row"><span class="label">Tem rendimento de investimentos?</span><span class="value ${d.rendaInvest > 0 ? 'amber' : 'green'}">${d.rendaInvest > 0 ? 'Sim → obrigado a declarar' : 'Não informou'}</span></div>
+      </div>
+    </div>
+
+    <!-- ESTIMATIVA IR -->
+    <div class="resultado-card">
+      <div class="resultado-title">💰 Simulação do Imposto</div>
+      ${diferencaTexto}
+      <div class="comparison-grid">
+        <div class="comp-box">
+          <h4>Modelo Simplificado</h4>
+          <div class="num ${res.irSimples < res.irCompleto ? 'good' : ''}">${fmt(res.irSimples)}</div>
+          <div class="sub">Desconto de 20%</div>
+        </div>
+        <div class="comp-box">
+          <h4>Modelo Completo</h4>
+          <div class="num ${res.irCompleto < res.irSimples ? 'good' : ''}">${fmt(res.irCompleto)}</div>
+          <div class="sub">Com gastos reais</div>
+        </div>
+      </div>
+      ${res.irCompleto < res.irSimples
+        ? `<div class="highlight-box" style="margin-top:12px">💡 O modelo completo seria mais vantajoso para você — economizaria ${fmt(res.irSimples - res.irCompleto)} de imposto.</div>`
+        : `<div class="highlight-box amber" style="margin-top:12px">📌 O modelo simplificado parece vantajoso no seu caso — mas sempre compare antes de decidir.</div>`
+      }
+    </div>
+
+    <!-- ALERTAS -->
+    ${alertasHtml}
+
+    <!-- RESUMO FINAL -->
+    <div class="resultado-card info">
+      <div class="resultado-title">📄 Resumo para declaração</div>
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px">Organize estas informações antes de usar o sistema oficial da Receita Federal.</p>
+
+      <div class="resumo-section">
+        <div class="resumo-block">
+          <div class="resumo-block-head">📥 Rendimentos (Dinheiro que você recebeu)</div>
+          <div class="resumo-row"><span class="rk">Salário / Pró-labore</span><span class="rv">${fmt(d.rendaSalario)}</span></div>
+          <div class="resumo-row"><span class="rk">Renda extra / bicos</span><span class="rv">${fmt(d.rendaExtra)}</span></div>
+          <div class="resumo-row"><span class="rk">Aluguéis / investimentos</span><span class="rv">${fmt(d.rendaInvest)}</span></div>
+          <div class="resumo-row" style="background:var(--cream-dark)"><span class="rk"><strong>Total</strong></span><span class="rv"><strong>${fmt(res.rendaTotal)}</strong></span></div>
+        </div>
+
+        <div class="resumo-block">
+          <div class="resumo-block-head">💸 Deduções (Gastos que reduzem o imposto)</div>
+          <div class="resumo-row"><span class="rk">INSS estimado</span><span class="rv">${fmt(res.inssAnual)}</span></div>
+          <div class="resumo-row"><span class="rk">Saúde (sem limite)</span><span class="rv">${fmt(d.gastosSaude)}</span></div>
+          <div class="resumo-row"><span class="rk">Educação (máx. ${fmt(DEDUCAO_MAX_EDUCACAO)})</span><span class="rv">${fmt(Math.min(d.gastosEducacao, DEDUCAO_MAX_EDUCACAO))}</span></div>
+          <div class="resumo-row"><span class="rk">Dependentes (${d.dependentes}x)</span><span class="rv">${fmt(d.dependentes * DEDUCAO_POR_DEPENDENTE)}</span></div>
+        </div>
+
+        <div class="resumo-block">
+          <div class="resumo-block-head">🏠 Bens e Patrimônio</div>
+          <div class="resumo-row"><span class="rk">Imóveis</span><span class="rv">${fmt(d.valorImovel)}</span></div>
+          <div class="resumo-row"><span class="rk">Veículos</span><span class="rv">${fmt(d.valorCarro)}</span></div>
+        </div>
+
+        <div class="resumo-block">
+          <div class="resumo-block-head">📊 Resumo do IR estimado</div>
+          <div class="resumo-row"><span class="rk">Modelo escolhido</span><span class="rv">${d.modeloDesconto}</span></div>
+          <div class="resumo-row"><span class="rk">Base de cálculo</span><span class="rv">${fmt(d.modeloDesconto === 'Desconto simples (20%)' ? res.baseSimples : res.baseCompleto)}</span></div>
+          <div class="resumo-row"><span class="rk">IR estimado</span><span class="rv">${fmt(res.irEscolhido)}</span></div>
+          <div class="resumo-row"><span class="rk">Retido na fonte (estimativa)</span><span class="rv">${fmt(res.retidoFonte)}</span></div>
+          <div class="resumo-row" style="background:var(--cream-dark)">
+            <span class="rk"><strong>${res.diferenca < 0 ? '💚 Restituição estimada' : '⚠️ A pagar estimado'}</strong></span>
+            <span class="rv" style="color:${res.diferenca < 0 ? 'var(--olive)' : 'var(--rust)'}"><strong>${fmt(Math.abs(res.diferenca))}</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button class="print-btn" onclick="window.print()">🖨️ Imprimir resumo</button>
+        <button class="restart-btn" onclick="reiniciarAssistente()">🔄 Refazer simulação</button>
+      </div>
+    </div>
+
+    <div class="disclaimer-box">
+      <h4>⚠️ Lembre-se</h4>
+      <ul>
+        <li>Estes valores são estimativas — use o Programa IRPF oficial da Receita Federal para a declaração real</li>
+        <li>Considere consultar um contador para revisão final</li>
+        <li>Guarde todos os comprovantes e recibos dos valores informados</li>
+      </ul>
+    </div>
+  `;
+
+  area.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ================================================================
+// REINICIAR
+// ================================================================
+function reiniciarAssistente() {
+  state.step = 0;
+  state.dados = { estadoCivil: null, dependentes: 0, rendaSalario: 0, rendaExtra: 0, rendaInvest: 0, gastosSaude: 0, gastosEducacao: 0, temImovel: false, valorImovel: 0, temCarro: false, valorCarro: 0, modeloDesconto: null };
+  document.getElementById('chatArea').innerHTML = '';
+  document.getElementById('resultadoArea').classList.add('hidden');
+  document.getElementById('resultadoArea').innerHTML = '';
+  document.getElementById('inputArea').innerHTML = `
+    <div class="input-question" id="inputQuestion"></div>
+    <div id="inputControls"></div>
+  `;
+  updateProgress(0);
+  renderStep(0);
+  document.getElementById('assistente').scrollIntoView({ behavior: 'smooth' });
+}
+
+function scrollToAssistente() {
+  document.getElementById('assistente').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ================================================================
+// INICIALIZAÇÃO
+// ================================================================
+window.addEventListener('DOMContentLoaded', () => {
+  renderStep(0);
+});
 </script>
-
 </body>
 </html>
