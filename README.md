@@ -1,232 +1,176 @@
-# Assistente Educacional IRPF 2026
+# 📋 Guia IR 2026
 
-Aplicação web estática (HTML/CSS/JS) desenvolvida para auxiliar cidadãos brasileiros a entenderem as regras do Imposto de Renda Pessoa Física (IRPF) para o exercício de 2026, com foco especial na nova faixa de isenção.
-
-## 📝 Descrição do Projeto
-
-O projeto nasceu da necessidade de simplificar a comunicação fiscal. Ele atua como uma interface de "baixa carga cognitiva", traduzindo termos jurídicos e contábeis para uma linguagem acessível ao público leigo. O sistema guia o usuário por uma jornada de aprendizado antes de permitir a simulação de valores.
-
-## ⚖️ Princípios de Compliance e Regras de Negócio
-
-### 1\. Isenção Atualizada
-
-O motor de cálculo foi ajustado para a nova diretriz de 2026:
-
-  * **Piso de Isenção:** R$ 5.000,00 mensais.
-  * **Base Anual:** R$ 60.000,00.
-  * **Lógica:** O imposto é simulado apenas sobre o excedente da base de isenção, considerando deduções por dependentes e saúde.
-
-### 2\. Privacidade e Segurança
-
-  * **Zero Backend:** Não existem bancos de dados ou APIs externas.
-  * **Local Storage:** Os dados são salvos apenas no navegador do usuário para persistência temporária.
-  * **Segurança de Dados:** Nenhuma informação financeira sai do dispositivo do usuário.
-
-### 3\. Pilares de UX (User Experience)
-
-  * **Educação Primeiro:** É obrigatório passar pelo bloco didático antes da ferramenta de cálculo.
-  * **Linguagem Cidadã:** Termos como "Deduções" são apresentados como "Descontos por gastos essenciais".
-  * **Acessibilidade:** Interface limpa, mobile-first e sem elementos visuais distrativos.
-
-## 🛠️ Tecnologias Utilizadas
-
-  * **HTML5:** Estrutura semântica.
-  * **CSS3:** Design responsivo utilizando Variáveis CSS para padronização de cores.
-  * **Vanilla JavaScript:** Lógica de cálculo e manipulação de DOM sem dependências de frameworks.
-
-## 📂 Estrutura do Código
-
-A correção aplicada nesta versão focou em:
-
-1.  **Documentação JSDoc:** Comentários nas funções JavaScript para facilitar a manutenção.
-2.  **Remoção de Emojis:** Interface limpa seguindo padrões profissionais de design institucional.
-3.  **Analogias Didáticas:** Inclusão da explicação de imposto como "Taxa de Condomínio" no Passo 1.
-
-## 🚀 Como Executar
-
-1.  Faça o download do arquivo `index.html`.
-2.  Abra o arquivo em qualquer navegador moderno (Chrome, Firefox, Edge ou Safari).
-3.  Nenhuma conexão com a internet é necessária após o carregamento inicial.
-
------
-
-## 👨‍💻 Desenvolvedor
-
-**Douglas Yohan**
-Analista de Infraestrutura e Segurança | Estudante de Ciências Contábeis
-
-  * [LinkedIn](https://www.google.com/search?q=https://linkedin.com/in/douglasyohan)
-  * [GitHub](https://www.google.com/search?q=https://github.com/Douglasyohan)
-  * [Lattes](https://www.google.com/search?q=https://lattes.cnpq.br/4064564945245811)
-
------
-
-**Nota:** Esta ferramenta é um guia educativo e não substitui o Programa Gerador de Declaração (PGD) da Receita Federal do Brasil.# 🧾 IRPF Assistant (Brazil) — Educational Tax Helper
-
-## 📌 Description
-
-A simple, privacy-first web assistant designed to help Brazilian users understand and prepare for their Income Tax (IRPF) declaration. This tool does **not** file taxes — it educates and guides users through the process in a clear and accessible way.
+> Ferramenta educacional e de simulação do Imposto de Renda Pessoa Física 2026 — desenvolvida como projeto de Iniciação Científica.
 
 ---
 
-## 🎯 Purpose
+## ⚠️ Aviso Legal
 
-This project was built to reduce confusion around Brazilian income tax by:
-
-* Explaining how IRPF works in simple terms
-* Helping users understand if they may need to declare
-* Guiding users step-by-step through their financial information
-* Organizing data before using the official government system
+Esta ferramenta **não é da Receita Federal** e **não substitui o sistema oficial (Programa IRPF)**.  
+É uma aplicação educacional que ajuda o usuário a entender o imposto, organizar informações e simular cenários de forma aproximada.  
+Nenhum dado sai do navegador do usuário. Nenhum dado é enviado a servidores.
 
 ---
 
-## ⚠️ Disclaimer
+## 🎯 Objetivo
 
-> This application is **not affiliated with Receita Federal** and does **not replace official tools**.
-> All results are **educational estimates only**.
-> Users are fully responsible for their final tax declaration.
+Criar uma ferramenta que:
 
----
+1. **Ensina** o usuário do zero, sem termos técnicos
+2. **Guia** passo a passo pela lógica do imposto de renda
+3. **Simula** cenários de tributação de forma aproximada
+4. **Organiza** as informações para uso no sistema oficial
 
-## 🧠 Core Concept
-
-The system is designed around three pillars:
-
-### 1. Education
-
-Users first learn how income tax works before interacting with the assistant.
-
-### 2. Assistance
-
-A guided, conversational interface helps users input and understand their financial situation.
-
-### 3. Decision Support
-
-The system applies tax rules to provide insights such as:
-
-* احتمال need to declare
-* potential risks or alerts
-* structured financial summary
+Público-alvo: universitários e trabalhadores de baixa renda que nunca declararam ou têm dificuldade com o processo.
 
 ---
 
-## 🏗️ Project Structure
+## ✨ Funcionalidades
+
+### 📚 Bloco Educacional
+- O que é o Imposto de Renda e para que serve
+- Quem é obrigado a declarar (com critérios para 2026)
+- O que precisa ser informado (rendimentos, bens, gastos)
+- Como funciona a tabela progressiva de alíquotas
+- O que acontece em caso de erro ou não entrega
+
+### 🤖 Assistente de Simulação
+- Conversa guiada em 6 passos
+- Coleta: estado civil, dependentes, rendimentos, gastos dedutíveis, bens
+- Comparação entre modelo simplificado (20%) e declaração completa
+- Estimativa de imposto a pagar ou valor a restituir
+- Alertas contextuais (renda de investimentos, limite de educação, etc.)
+- Resumo final organizado pronto para consulta
+
+---
+
+## 🏗️ Tecnologia
+
+| Item | Detalhe |
+|------|---------|
+| Stack | HTML5 + CSS3 + JavaScript vanilla |
+| Arquitetura | Single-page, single-file (`index.html`) |
+| Backend | Nenhum — 100% client-side |
+| Armazenamento | Estado em memória (sessão apenas) |
+| Dependências externas | Google Fonts (Sora + DM Serif Display) |
+| Tamanho do arquivo | ~52 KB |
+
+---
+
+## 📁 Estrutura
 
 ```
-/
-├── index.html
-├── styles.css
-├── script.js
-├── /modules
-│   ├── rules.js        # Tax rules engine (IRPF logic)
-│   ├── assistant.js    # Conversational flow
-│   ├── ui.js           # Interface rendering
-│   └── storage.js      # Local data persistence
-└── README.md
+guia-ir-2026/
+└── index.html      # Aplicação completa (HTML + CSS + JS embutidos)
 ```
 
 ---
 
-## ⚙️ Technologies
+## 🚀 Como usar
 
-* HTML5
-* CSS3
-* Vanilla JavaScript
-* LocalStorage (client-side only)
-* Optional: PWA support
+Não há instalação. Basta abrir o arquivo no navegador:
 
----
+```bash
+# Clone ou baixe o repositório
+git clone https://github.com/Douglasyohan/guia-ir-2026.git
 
-## 🔐 Privacy First
+# Abra o arquivo no navegador
+open index.html
+# ou arraste o arquivo para o navegador
+```
 
-* No backend
-* No data collection
-* No external storage
-* All user data stays in the browser
+Funciona completamente offline após o carregamento das fontes.
 
 ---
 
-## 📊 Key Features
+## 🧮 Critérios de Simulação (IRPF 2026 — ano-base 2025)
 
-* 📘 Educational introduction (beginner-friendly)
-* 🤖 Interactive assistant (step-by-step guidance)
-* 📈 Basic tax estimation (non-official)
-* ⚠️ Smart alerts (risk indicators)
-* 📁 Data organization for official declaration
-* 💾 Local save (via LocalStorage)
+Os cálculos seguem a legislação vigente de forma aproximada:
 
----
+**Tabela progressiva mensal (referência):**
 
-## 📌 Tax Rules Coverage (IRPF 2026)
+| Faixa de renda mensal | Faixa anual | Alíquota | Dedução |
+|---|---|---|---|
+| Até R$ 5.000 | Até R$ 60.000 | 0% (isento) | — |
+| R$ 5.001 – R$ 6.252 | R$ 60.001 – R$ 75.024 | 7,5% | R$ 4.500,00 |
+| R$ 6.253 – R$ 7.664 | R$ 75.025 – R$ 91.968 | 15% | R$ 9.189,00 |
+| R$ 7.665 – R$ 9.830 | R$ 91.969 – R$ 117.960 | 22,5% | R$ 15.624,00 |
+| Acima de R$ 9.830 | Acima de R$ 117.960 | 27,5% | R$ 21.513,00 |
 
-The assistant considers:
+**Deduções consideradas:**
+- INSS estimado (9% do salário, teto R$ 9.000)
+- Dependentes: R$ 2.275,08 por pessoa (anual)
+- Educação: até R$ 3.561,50 por pessoa (anual)
+- Saúde: sem limite (gastos comprovados)
+- Desconto simplificado: 20% da renda, máximo R$ 16.754,34
 
-* Annual income thresholds
-* Exempt income scenarios
-* Asset ownership
-* Investments and stock market activity
-* Capital gains (sale of assets)
-* Foreign income
-
-⚠️ All rules are simplified for educational purposes.
-
----
-
-## 🚀 Deployment
-
-This is a static application and can be deployed easily using:
-
-* Netlify
-* GitHub Pages
-* Vercel (static mode)
-
-### Example (Netlify):
-
-1. Upload project files
-2. Set publish directory to root
-3. Deploy
+> **Nota:** Estes valores são referência para fins educacionais. Consulte sempre a legislação atualizada e um contador para sua declaração real.
 
 ---
 
-## 📈 Roadmap
+## 📸 Estrutura da Interface
 
-### MVP
-
-* Core assistant
-* Basic rules engine
-* Educational content
-
-### Next Steps
-
-* PWA (offline support)
-* Improved UX
-* Expanded tax scenarios
-
-### Future Vision
-
-* Integration with economic data APIs
-* Personalized insights
-* Optional backend for advanced features
+```
+┌─────────────────────────────────────┐
+│  Aviso legal (barra fixa no topo)   │
+├─────────────────────────────────────┤
+│  Header com logo e botão de acesso  │
+├─────────────────────────────────────┤
+│  Hero / apresentação                │
+├─────────────────────────────────────┤
+│  📚 BLOCO EDUCACIONAL               │
+│   ├── O que é IR?                   │
+│   ├── Quem precisa declarar?        │
+│   ├── O que informar?               │
+│   ├── Como o imposto é calculado?   │
+│   └── E se errar ou não declarar?  │
+├─────────────────────────────────────┤
+│  🎯 CHAMADA PARA AÇÃO (CTA)         │
+├─────────────────────────────────────┤
+│  🤖 ASSISTENTE (6 passos)           │
+│   ├── Passo 1: Estado civil         │
+│   ├── Passo 2: Dependentes          │
+│   ├── Passo 3: Rendimentos          │
+│   ├── Passo 4: Gastos dedutíveis    │
+│   ├── Passo 5: Bens                 │
+│   └── Passo 6: Modelo de declaração │
+├─────────────────────────────────────┤
+│  📊 RESULTADO DA SIMULAÇÃO          │
+│   ├── Preciso declarar?             │
+│   ├── Comparação dos modelos        │
+│   ├── Alertas contextuais           │
+│   └── Resumo para declaração        │
+├─────────────────────────────────────┤
+│  Footer com links                   │
+└─────────────────────────────────────┘
+```
 
 ---
 
-## 🧩 Contribution
+## 🔗 Contexto Acadêmico
 
-This project is designed as a learning and utility tool. Contributions are welcome for:
+Este projeto foi desenvolvido como parte de pesquisa de **Iniciação Científica** no curso de **Ciências Contábeis** da **UNICENTRO — Universidade Estadual do Centro-Oeste**, campus Guarapuava–PR.
 
-* UX improvements
-* Tax rule updates
-* Accessibility enhancements
-
----
-
-## 📎 License
-
-MIT License — free to use and modify.
+Linha de pesquisa: educação financeira gamificada para universitários de baixa renda.  
+Registro de propriedade intelectual: **App-Renda-Finanças$** (INPI).
 
 ---
 
-## 💡 Final Note
+## 👤 Autor
 
-This project is not about replacing the tax system —
-it's about making people **understand it better** before they use it.
+**Douglas Yohan**  
+Estudante de Ciências Contábeis · UNICENTRO · Guarapuava–PR
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-douglasyohan-0A66C2?logo=linkedin)](https://www.linkedin.com/in/douglasyohan/)
+[![GitHub](https://img.shields.io/badge/GitHub-Douglasyohan-181717?logo=github)](https://github.com/Douglasyohan)
+[![Lattes](https://img.shields.io/badge/Lattes-CNPq-005A8C)](http://lattes.cnpq.br/4064564945245811)
+
+---
+
+## 📄 Licença
+
+Este projeto é de uso educacional e acadêmico. Para uso comercial, entre em contato com o autor.
+
+---
+
+*Guia IR 2026 · Ferramenta educacional independente · Não é da Receita Federal*
